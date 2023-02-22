@@ -1,5 +1,5 @@
 <?php
-class Solution {
+class Solution1 {
 
     /**
      * @param String $J
@@ -14,5 +14,26 @@ class Solution {
             $count += $data[$J[$i]];
         }
         return $count;
+    }
+}
+
+class Solution2 {
+
+    /**
+     * @param String $jewels
+     * @param String $stones
+     * @return Integer
+     */
+    function numJewelsInStones($jewels, $stones) {
+        $jewels = count_chars($jewels, 1);
+        $stones = count_chars($stones, 1);
+        $result = 0;
+        foreach($stones as $stoneNumber => $count) {
+            if (!empty($jewels[$stoneNumber])) {
+                $result += $count;
+            }
+        }
+
+        return $result;
     }
 }
